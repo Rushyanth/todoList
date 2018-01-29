@@ -1,0 +1,17 @@
+{% extends 'userlayout.html' %}
+
+{% block start %}
+
+<h1>Add Task</h1>
+<form method="POST" action="">
+	
+	<label>Task Title</label><br>
+	<input type="text" name="title" class="form-control"><br>
+
+	<label>Enter the task</label><br>
+	<textarea name="body" rows="4" cols="100" class="form-control" ></textarea><br>
+
+	<p><input type="submit" value="Submit" class="btn btn-primary"></p>	
+</form>
+
+{% endblock %}

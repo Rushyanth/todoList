@@ -1,0 +1,17 @@
+{% extends 'userlayout.html' %}
+
+{% block start %}
+
+<h1>Edit Task</h1>
+<form method="POST" action="">
+	
+	<label>Task Title</label><br>
+	<input type="text" name="title" class="form-control" value="{{data['title']}}"><br>
+
+	<label>Enter the task</label><br>
+	<textarea name="body" rows="4"  class="form-control">{{data['body']}}</textarea><br>
+
+	<p><input type="submit" value="Submit" class="btn btn-primary"></p>	
+</form>
+
+{% endblock %}

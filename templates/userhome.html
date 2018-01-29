@@ -1,0 +1,42 @@
+{% extends 'userlayout.html' %}
+
+{% block start %}
+
+<br>
+<a href="/addTask" class="btn btn-success">Add Task</a>
+<br><br>
+<h2>Task List</h2>
+
+<table class="table table-striped">
+	<tr>
+		<th>S.No</th>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Status</th>
+		<th>Actions</th>
+	</tr>
+	
+	{% for task in tasks %}
+	<tr> 
+		<td>{{task.id}}</td>
+		<td>{{task.title}}</td>
+		<td>{{task.body}}</td>
+		<td>
+			<form action="/statusOfTask/{{task.status}}/{{task.id}}" method="POST">
+				<input type="submit" name="status" value="{{task.status}}" class="btn btn-success">
+			</form>
+		</td>
+		<td><a href="/editTask/{{task.id}}" class="btn btn-success">Edit</a>
+			<form action="/deleteTask/{{task.id}}" method="POST">
+				<input type="submit" name="delete" value="Delete" class="btn btn-danger">
+			</form>
+		</td>
+	</tr>
+	{% endfor %}
+</table>
+
+{% if tasks|length == 0 %}
+	<h2 align="center">No Tasks Yet!!</h2>	
+{% endif %}
+
+{% endblock %}
